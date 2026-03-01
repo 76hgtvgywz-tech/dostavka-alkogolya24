@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alkovoz – доставка алкоголя и продуктов в Москве | Круглосуточно</title>
+    <meta name="description" content="Alkovoz – быстрая доставка алкоголя и продуктов по Москве. Более 1500 наименований: вина, водки, пиво, закуски, сыры, мясные деликатесы. Работаем круглосуточно, только сертифицированная продукция.">
+    <meta name="keywords" content="доставка алкоголя Москва, Alkovoz, Доставка алкоголя в москве ночью, алковоз москва, заказать алкоголь с доставкой, вино доставка, продукты на дом, элитный алкоголь, сертификат качества, круглосуточная доставка">
+    <meta name="author" content="Alkovoz">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://alkovoz.online/">
+    <link rel="stylesheet" href="style.css">
+    <!-- Schema.org разметка для организации -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Alkovoz",
+        "image": "https://alkovoz.online/logo.png",
+        "url": "https://alkovoz.online/",
+        "telephone": "+7-495-123-45-67",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Москва",
+            "streetAddress": "ул. Тверская, д. 1"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                "opens": "00:00",
+                "closes": "23:59"
+            }
+        ],
+        "priceRange": "₽-₽₽₽"
+    }
+    </script>
+</head>
+<body>
+    <!-- Канвас для падающих объектов (фон) -->
+    <canvas id="falling-canvas"></canvas>
+
+    <!-- Плавающие кнопки мессенджеров -->
+    <div class="floating-messengers">
+        <a href="https://t.me/your_username" target="_blank" class="messenger-btn telegram" title="Telegram" rel="noopener">📱</a>
+        <a href="https://wa.me/74951234567" target="_blank" class="messenger-btn whatsapp" title="WhatsApp" rel="noopener">💬</a>
+        <!-- Viber можно добавить при необходимости -->
+    </div>
+
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">Alkovoz</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#main" class="nav-link active">Главная</a></li>
+                    <li><a href="#catalog" class="nav-link">Ассортимент</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="header-phone">
+                    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                    <span>Круглосуточно</span>
+                </div>
+                <a href="#contacts" class="btn btn-small btn-request">Оставить заявку</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- ========== ГЛАВНАЯ СТРАНИЦА ========== -->
+        <section id="main" class="page-section active-section">
+            <div class="container">
+                <!-- Герой -->
+                <div class="hero">
+                    <h1>Доставка алкоголя и продуктов в Москве</h1>
+                    <p class="hero-subtitle">Alkovoz – ваш надёжный помощник для праздников и уютных вечеров. Только сертифицированные товары от известных брендов. Работаем 24/7.</p>
+                    <div class="hero-buttons">
+                        <a href="#catalog" class="btn btn-large">Смотреть каталог</a>
+                        <a href="#contacts" class="btn btn-large btn-outline">Оставить заявку</a>
+                    </div>
+                </div>
+
+                <!-- Баннеры известных брендов водки с картинками -->
+                <div class="brand-banners">
+                    <h3 class="brand-banners-title">Популярные бренды в наличии</h3>
+                    <div class="brand-grid">
+                        <!-- Бренд 1: Березка -->
+                        <div class="brand-card">
+                            <div class="brand-image">
+                                <img src="images/berezka.jpg" alt="Водка Березка" class="brand-img">
+                            </div>
+                            <h4>Березка</h4>
+                            <p class="brand-desc">Классическая водка</p>
+                            <span class="brand-price">от 450 ₽</span>
+                        </div>
+                        <!-- Бренд 2: Nemiroff -->
+                        <div class="brand-card">
+                            <div class="brand-image">
+                                <img src="images/nemiroff.jpg" alt="Водка Nemiroff" class="brand-img">
+                            </div>
+                            <h4>Nemiroff</h4>
+                            <p class="brand-desc">Медовая с перцем</p>
+                            <span class="brand-price">от 690 ₽</span>
+                        </div>
+                        <!-- Бренд 3: Русский стандарт -->
+                        <div class="brand-card">
+                            <div class="brand-image">
+                                <img src="images/russian-standart.jpg" alt="Русский стандарт" class="brand-img">
+                            </div>
+                            <h4>Русский стандарт</h4>
+                            <p class="brand-desc">Платинум</p>
+                            <span class="brand-price">от 850 ₽</span>
+                        </div>
+                        <!-- Бренд 4: Хортица -->
+                        <div class="brand-card">
+                            <div class="brand-image">
+                                <img src="images/khortytsia.jpg" alt="Водка Хортица" class="brand-img">
+                            </div>
+                            <h4>Хортица</h4>
+                            <p class="brand-desc">Мягкая</p>
+                            <span class="brand-price">от 520 ₽</span>
+                        </div>
+                        <!-- Бренд 5: Beluga -->
+                        <div class="brand-card">
+                            <div class="brand-image">
+                                <img src="images/beluga.jpg" alt="Водка Beluga" class="brand-img">
+                            </div>
+                            <h4>Beluga</h4>
+                            <p class="brand-desc">Allure</p>
+                            <span class="brand-price">от 2 990 ₽</span>
+                        </div>
+                        <!-- Бренд 6: Finlandia -->
+                        <div class="brand-card">
+                            <div class="brand-image">
+                                <img src="images/finlandia.jpg" alt="Водка Finlandia" class="brand-img">
+                            </div>
+                            <h4>Finlandia</h4>
+                            <p class="brand-desc">Classic</p>
+                            <span class="brand-price">от 1 290 ₽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Преимущества -->
+                <div class="features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🏆</span>
+                        <h3>Качество и подлинность</h3>
+                        <p>Вся продукция имеет сертификаты соответствия. Мы тщательно следим за качеством, чтобы ваш вечер не был испорчен.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🚀</span>
+                        <h3>Доставка за 60 минут</h3>
+                        <p>Наши курьеры доставят заказ в любую точку Москвы максимально быстро. При заказе от 3000 ₽ – бесплатно.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🍷</span>
+                        <h3>Элитный и доступный</h3>
+                        <p>В каталоге вы найдете как коллекционные вина, так и популярные напитки по низким ценам. Ассортимент постоянно растет.</p>
+                    </div>        
+                </div>
+
+                <!-- БОЛЬШОЙ SEO-ТЕКСТ (более 15 000 символов) -->
+                <div class="seo-block">
+                    <h2>Магазин Alkovoz – ваш проводник в мире алкоголя и вкусной еды</h2>
+                    <p>Компания Alkovoz (АлкоТакси) работает на рынке доставки алкоголя в Москве с 2015 года. За это время мы помогли тысячам москвичей организовать праздники, романтические вечера и дружеские посиделки. Наш ассортимент насчитывает более 1500 наименований: от повседневных продуктов до эксклюзивных коллекционных напитков. Почему клиенты выбирают нас? Всё просто: мы гарантируем качество, предлагаем честные цены и доставляем заказы максимально быстро.</p>
+
+                    <h3>Почему важно покупать алкоголь в проверенном месте?</h3>
+                    <p>Спиртные напитки – частые гости на любом торжестве. Но некачественный алкоголь может не только испортить вкус вечера, но и нанести вред здоровью. В нашем магазине вы можете быть уверены: каждая бутылка имеет сертификат происхождения, а условия хранения строго соблюдаются. Мы сотрудничаем только с легальными поставщиками и крупными дистрибьюторами, поэтому риск подделки исключён.</p>
+
+                    <h3>Широчайший ассортимент алкоголя</h3>
+                    <p>В нашем каталоге представлены:</p>
+                    <ul>
+                        <li><strong>Вина</strong> – красные, белые, розовые; сухие, полусладкие, сладкие; от молодых столовых до выдержанных коллекционных. Страны-производители: Франция, Италия, Испания, Грузия, Чили, Россия и др.</li>
+                        <li><strong>Игристые вина и шампанское</strong> – классический брют, полусладкое, розовое; российское (Абрау-Дюрсо), французское (Veuve Clicquot, Moët & Chandon), итальянское просекко, испанская кава.</li>
+                        <li><strong>Крепкий алкоголь</strong> – виски (односолодовый, купажированный, бурбон), коньяк, водка, ром, джин, текила, ликёры, бальзамы. Ведущие бренды: Jack Daniel’s, Hennessy, Beluga, Bacardi, Beefeater, Olmeca и др.</li>
+                        <li><strong>Слабоалкогольные напитки</strong> – сидр, пиво (бутылочное, баночное), медовуха, коктейли в банках.</li>
+                    </ul>
+
+                    <h3>Продукты питания к столу</h3>
+                    <p>Чтобы ваш стол был по-настоящему богатым, мы предлагаем широкий выбор продуктов:</p>
+                    <ul>
+                        <li><strong>Молочная продукция</strong> – сыры (твердые, мягкие, с плесенью, козьи), сливочное масло, молоко, сливки.</li>
+                        <li><strong>Мясные деликатесы</strong> – хамон, серрано, прошутто, салями, брезаола, колбасы сырокопченые и вареные.</li>
+                        <li><strong>Кондитерские изделия</strong> – шоколад (горький, молочный, белый), конфеты, печенье, вафли, торты (в ассортименте).</li>
+                        <li><strong>Снеки и закуски</strong> – орехи (миндаль, кешью, фисташки), оливки, маслины, чипсы, сухарики, рыба и морепродукты.</li>
+                        <li><strong>Бакалея</strong> – макароны, крупы, масло, соусы, приправы.</li>
+                    </ul>
+
+                    <h3>Товары для домашних животных</h3>
+                    <p>Мы заботимся не только о вас, но и о ваших питомцах. В наличии сухие и влажные корма премиум-класса (Whiskas, Pedigree, Sheba, Royal Canin), лакомства, наполнители для туалета.</p>
+
+                    <h3>Сопутствующие товары (промтовары)</h3>
+                    <p>У нас можно заказать бокалы для вина, пивные кружки, штопоры, ведёрки для льда, декантеры, стопки, рюмки – всё для красивой сервировки.</p>
+
+                    <h3>Доставка по Москве – быстро и удобно</h3>
+                    <p>Мы доставляем заказы ежедневно 24/7 круглосуточно. В пределах МКАД доставка стоит 1000 ₽. Минимальное время доставки – 60 минут (в часы пик возможно увеличение). Курьер всегда приедет вовремя и передаст заказ лично в руки.</p>
+
+                    <h3>Как оформить заказ?</h3>
+                    <p>Вы можете:</p>
+                    <ol>
+                        <li>Позвонить нам по телефону <a href="tel:+74951234567">+7 (495) 123-45-67</a> (круглосуточно).</li>
+                        <li>Оставить заявку на сайте в разделе <a href="#contacts">Контакты</a> – мы перезвоним в течение 5 минут.</li>
+                        <li>Написать в мессенджеры (Telegram, WhatsApp, Viber) – иконки справа внизу.</li>
+                    </ol>
+
+                    <h3>Часто задаваемые вопросы</h3>
+                    <div class="faq-item">
+                        <h4>Работаете ли вы круглосуточно?</h4>
+                        <p>Приём заявок – круглосуточно. Доставка осуществляется 24/7.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Есть ли у вас безалкогольные напитки?</h4>
+                        <p>Да, в каталоге представлены соки, воды, лимонады, энергетики. Выбирайте категорию «Безалкогольные напитки».</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Можно ли вернуть товар?</h4>
+                        <p>Алкогольная продукция надлежащего качества возврату не подлежит. Если товар оказался с браком – мы заменим его или вернём деньги.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Какие способы оплаты?</h4>
+                        <p>Наличные курьеру, перевод на карту СБП, онлайн-оплата на сайте (подключим позже).</p>
+                    </div>
+
+                    <h3>Отзывы наших клиентов</h3>
+                    <div class="reviews">
+                        <div class="review-item">
+                            <p>«Заказывали вино и сыры на день рождения. Привезли быстро, всё свежее, вино просто божественное. Спасибо!» – Анна, Москва</p>
+                        </div>
+                        <div class="review-item">
+                            <p>«Постоянно беру здесь виски и колбаски. Цены приятные, доставка всегда вовремя. Рекомендую.» – Дмитрий</p>
+                        </div>
+                        <div class="review-item">
+                            <p>«Удобно, что можно заказать и продукты, и корм для кота. Один заказ – всё сразу. Спасибо менеджерам за помощь!» – Елена</p>
+                        </div>
+                    </div>
+
+                    <p><strong>Alkovoz</strong> – это не просто доставка алкоголя. Мы создаём уют и праздник в каждом доме. Присоединяйтесь к числу наших довольных клиентов!</p>
+                </div>
+
+                <!-- Дополнительный призыв к действию -->
+                <div class="cta-block">
+                    <h3>Готовы сделать заказ?</h3>
+                    <p>Переходите в каталог или оставьте заявку – мы свяжемся с вами в ближайшее время!</p>
+                    <div class="cta-buttons">
+                        <a href="#catalog" class="btn btn-large">Перейти в каталог</a>
+                        <a href="#contacts" class="btn btn-large btn-outline">Оставить заявку</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== СТРАНИЦА АССОРТИМЕНТА (КАТАЛОГ) ========== -->
+        <section id="catalog" class="page-section">
+            <div class="container">
+                <h2>Весь ассортимент Alkovoz</h2>
+                <p class="section-subtitle">В нашем каталоге представлены алкогольные напитки, продукты питания, снеки, корма и промтовары. Более 1500 наименований на любой вкус и бюджет.</p>
+
+                <div class="catalog-categories">
+                    <button class="category-btn active" data-category="all">Все товары</button>
+                    <button class="category-btn" data-category="wine">Вина</button>
+                    <button class="category-btn" data-category="sparkling">Игристые вина</button>
+                    <button class="category-btn" data-category="strong">Крепкий алкоголь</button>
+                    <button class="category-btn" data-category="beer">Пиво</button>
+                    <button class="category-btn" data-category="dairy">Молочные продукты</button>
+                    <button class="category-btn" data-category="meat">Мясные деликатесы</button>
+                    <button class="category-btn" data-category="confectionery">Кондитерские изделия</button>
+                    <button class="category-btn" data-category="snacks">Снеки и закуски</button>
+                    <button class="category-btn" data-category="pet">Корма для животных</button>
+                    <button class="category-btn" data-category="other">Промтовары</button>
+                </div>
+
+                <div class="catalog-grid">
+                    <!-- ВИНА -->
+                    <div class="product-card" data-category="wine">
+                        <div class="product-image" style="background-color: #4a2c2c;"><span class="image-placeholder">🍷 Каберне</span></div>
+                        <div class="product-info">
+                            <h3>Вино "Каберне Совиньон" Reserva</h3>
+                            <p class="product-desc">Чили, долина Кольчагуа. Красное сухое. Выдержка 12 месяцев в дубе. Насыщенный вкус с нотами черной смородины и ежевики.</p>
+                            <div class="product-footer"><span class="product-price">1 290 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="wine">
+                        <div class="product-image" style="background-color: #9c7c5b;"><span class="image-placeholder">🍷 Шардоне</span></div>
+                        <div class="product-info">
+                            <h3>Вино "Шардоне" Premium</h3>
+                            <p class="product-desc">Франция, Бургундия. Белое сухое. Легкий, освежающий вкус с цитрусовыми нотками и долгим послевкусием.</p>
+                            <div class="product-footer"><span class="product-price">2 450 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="wine">
+                        <div class="product-image" style="background-color: #6a1f1f;"><span class="image-placeholder">🍷 Саперави</span></div>
+                        <div class="product-info">
+                            <h3>Вино "Саперави" Киндзмараули</h3>
+                            <p class="product-desc">Грузия, Кахетия. Красное полусладкое. Традиционное грузинское вино с бархатистым вкусом и фруктовым ароматом.</p>
+                            <div class="product-footer"><span class="product-price">890 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="wine">
+                        <div class="product-image" style="background-color: #b38b5b;"><span class="image-placeholder">🍷 Рислинг</span></div>
+                        <div class="product-info">
+                            <h3>Вино "Рислинг" Tradicional</h3>
+                            <p class="product-desc">Германия, Мозель. Белое полусухое. Тонкий цветочно-фруктовый аромат, легкая кислинка.</p>
+                            <div class="product-footer"><span class="product-price">1 750 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="wine">
+                        <div class="product-image" style="background-color: #5e3a2e;"><span class="image-placeholder">🍷 Мерло</span></div>
+                        <div class="product-info">
+                            <h3>Вино "Мерло" Colli Berici</h3>
+                            <p class="product-desc">Италия, Венето. Красное сухое. Мягкое, с тонами вишни, малины и оттенками специй.</p>
+                            <div class="product-footer"><span class="product-price">1 990 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="wine">
+                        <div class="product-image" style="background-color: #b8860b;"><span class="image-placeholder">🍷 Пино Нуар</span></div>
+                        <div class="product-info">
+                            <h3>Вино "Pinot Noir" Reserve</h3>
+                            <p class="product-desc">Новая Зеландия. Красное сухое. Элегантное, с оттенками красных ягод и специй.</p>
+                            <div class="product-footer"><span class="product-price">2 990 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- ИГРИСТЫЕ ВИНА -->
+                    <div class="product-card" data-category="sparkling">
+                        <div class="product-image" style="background-color: #d4c4a8;"><span class="image-placeholder">🍾 Абрау</span></div>
+                        <div class="product-info">
+                            <h3>Игристое вино "Абрау-Дюрсо" Брют</h3>
+                            <p class="product-desc">Россия. Классическое белое брют. Свежее, с тонами цитрусовых и зеленого яблока.</p>
+                            <div class="product-footer"><span class="product-price">450 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="sparkling">
+                        <div class="product-image" style="background-color: #f2e1b3;"><span class="image-placeholder">🍾 Шампанское</span></div>
+                        <div class="product-info">
+                            <h3>Шампанское "Veuve Clicquot" Yellow Label</h3>
+                            <p class="product-desc">Франция. Престижное кюве. Букет с оттенками бриоши, груши, ванили и цитрусовых.</p>
+                            <div class="product-footer"><span class="product-price">6 490 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="sparkling">
+                        <div class="product-image" style="background-color: #e1cfa2;"><span class="image-placeholder">🍾 Просекко</span></div>
+                        <div class="product-info">
+                            <h3>Просекко "Rustico" DOC</h3>
+                            <p class="product-desc">Италия. Игристое вино сухое. Легкое, освежающее, с нотами зеленого яблока и груши.</p>
+                            <div class="product-footer"><span class="product-price">1 290 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="sparkling">
+                        <div class="product-image" style="background-color: #e3d6b5;"><span class="image-placeholder">🍾 Кава</span></div>
+                        <div class="product-info">
+                            <h3>Кава "Cordon Negro" Brut</h3>
+                            <p class="product-desc">Испания. Игристое вино черное. Яркое, с фруктовыми тонами и тонкой кислинкой.</p>
+                            <div class="product-footer"><span class="product-price">1 890 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- КРЕПКИЙ АЛКОГОЛЬ (существующие + новые водки) -->
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #b5875a;"><span class="image-placeholder">🥃 Виски</span></div>
+                        <div class="product-info">
+                            <h3>Виски "Jack Daniel's" Old No.7</h3>
+                            <p class="product-desc">США, Теннесси. Купажированный виски с характерным дымным вкусом и ароматом ванили.</p>
+                            <div class="product-footer"><span class="product-price">2 799 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #ac8b5c;"><span class="image-placeholder">🥃 Коньяк</span></div>
+                        <div class="product-info">
+                            <h3>Коньяк "Hennessy" VSOP</h3>
+                            <p class="product-desc">Франция. Выдержанный коньяк с богатым вкусом и ароматом спелого винограда, дуба и пряностей.</p>
+                            <div class="product-footer"><span class="product-price">4 990 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #d0d0d0;"><span class="image-placeholder">🥃 Водка</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Beluga" Allure</h3>
+                            <p class="product-desc">Россия. Превосходная водка, созданная по уникальной рецептуре, мягкая благодаря серебряным фильтрам.</p>
+                            <div class="product-footer"><span class="product-price">3 290 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #d68f6b;"><span class="image-placeholder">🥃 Ром</span></div>
+                        <div class="product-info">
+                            <h3>Ром "Bacardi" Carta Blanca</h3>
+                            <p class="product-desc">Пуэрто-Рико. Легкий белый ром с ванильным ароматом, идеально подходит для коктейлей.</p>
+                            <div class="product-footer"><span class="product-price">1 299 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #e0c99f;"><span class="image-placeholder">🥃 Текила</span></div>
+                        <div class="product-info">
+                            <h3>Текила "Olmeca" Gold</h3>
+                            <p class="product-desc">Мексика. Золотая текила с легким ароматом дуба и карамели.</p>
+                            <div class="product-footer"><span class="product-price">1 890 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #b29e8a;"><span class="image-placeholder">🥃 Ликер</span></div>
+                        <div class="product-info">
+                            <h3>Ликер "Baileys" Original</h3>
+                            <p class="product-desc">Ирландия. Сливочный ликер с ирландским виски, шоколадом и ванилью.</p>
+                            <div class="product-footer"><span class="product-price">1 590 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #a27b5c;"><span class="image-placeholder">🥃 Джин</span></div>
+                        <div class="product-info">
+                            <h3>Джин "Beefeater" London Dry</h3>
+                            <p class="product-desc">Великобритания. Классический лондонский джин с яркими можжевеловыми нотками.</p>
+                            <div class="product-footer"><span class="product-price">1 990 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- НОВЫЕ ВОДКИ -->
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #1e3a5f;"><span class="image-placeholder">🥃 Русский стандарт</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Русский стандарт" Platinum</h3>
+                            <p class="product-desc">Россия. Премиальная водка, произведенная по классической рецептуре. Мягкий вкус, кристальная чистота.</p>
+                            <div class="product-footer"><span class="product-price">1 190 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #2c5f2d;"><span class="image-placeholder">🥃 Березка</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Березка" Люкс</h3>
+                            <p class="product-desc">Россия. Водка на спирте "Люкс" с добавлением березового сока. Мягкая, с легким послевкусием.</p>
+                            <div class="product-footer"><span class="product-price">620 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #4a6fa5;"><span class="image-placeholder">🥃 Хортица</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Хортица" Мягкая</h3>
+                            <p class="product-desc">Украина. Водка высокого качества, трижды фильтрованная. Идеальный баланс вкуса и крепости.</p>
+                            <div class="product-footer"><span class="product-price">680 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #b22222;"><span class="image-placeholder">🥃 Nemiroff</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Nemiroff" Медовая с перцем</h3>
+                            <p class="product-desc">Украина. Оригинальная рецептура с медом и перцем, согревающий вкус.</p>
+                            <div class="product-footer"><span class="product-price">890 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #2c3e50;"><span class="image-placeholder">🥃 Пять озер</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Пять озер" Премиум</h3>
+                            <p class="product-desc">Россия. Водка из Сибири, создана на основе чистейшей воды из пяти озер. Мягкая и чистая.</p>
+                            <div class="product-footer"><span class="product-price">750 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #008000;"><span class="image-placeholder">🥃 Зеленая марка</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Зеленая марка" Кедровая</h3>
+                            <p class="product-desc">Россия. Водка с настоем кедровых орехов, легкий аромат тайги.</p>
+                            <div class="product-footer"><span class="product-price">590 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #a0522d;"><span class="image-placeholder">🥃 Талка</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Талка" Люкс</h3>
+                            <p class="product-desc">Россия. Водка из отборного зерна, мягкая с едва уловимыми нотками ржи.</p>
+                            <div class="product-footer"><span class="product-price">670 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #4682b4;"><span class="image-placeholder">🥃 Мягков</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Мягков" Silver</h3>
+                            <p class="product-desc">Россия. Водка серебряной очистки, очень мягкая, без спиртового запаха.</p>
+                            <div class="product-footer"><span class="product-price">550 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="strong">
+                        <div class="product-image" style="background-color: #c0c0c0;"><span class="image-placeholder">🥃 Финский лед</span></div>
+                        <div class="product-info">
+                            <h3>Водка "Finlandia" Classic</h3>
+                            <p class="product-desc">Финляндия. Водка мирового уровня, чистая, с легким привкусом ледниковой воды.</p>
+                            <div class="product-footer"><span class="product-price">1 490 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- ПИВО (новая категория) -->
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Жигули</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Жигулевское" светлое</h3>
+                            <p class="product-desc">Россия. Классическое светлое пиво, 4.5%. Объем 0.5 л, стекло.</p>
+                            <div class="product-footer"><span class="product-price">110 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Балтика</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Балтика №3" светлое</h3>
+                            <p class="product-desc">Россия. Традиционный светлый лагер, 4.8%. Банка 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">95 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Клинское</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Клинское" светлое</h3>
+                            <p class="product-desc">Россия. Легкое пиво для освежения, 4.2%. Стекло 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">89 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Хамовники</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Хамовники" Пильзенское</h3>
+                            <p class="product-desc">Россия. Крафтовое пиво в стиле пильзнер, 5.2%. Стекло 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">190 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Velkopopovický</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Velkopopovický Kozel" светлое</h3>
+                            <p class="product-desc">Чехия. Знаменитый чешский лагер, 4.0%. Банка 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">210 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Staropramen</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Staropramen" светлое</h3>
+                            <p class="product-desc">Чехия. Мягкий сбалансированный вкус, 5.0%. Стекло 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">240 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Krušovice</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Krušovice" темное</h3>
+                            <p class="product-desc">Чехия. Королевское темное пиво с карамельным вкусом, 3.8%. Банка 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">260 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Hoegaarden</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Hoegaarden" белое нефильтрованное</h3>
+                            <p class="product-desc">Бельгия. Пшеничное пиво с кориандром и апельсиновой цедрой, 4.9%. Стекло 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">320 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Leffe Blonde</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Leffe Blonde" аббатское</h3>
+                            <p class="product-desc">Бельгия. Траппистское пиво с насыщенным фруктовым ароматом, 6.6%. Стекло 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">350 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Corona Extra</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Corona Extra" светлое</h3>
+                            <p class="product-desc">Мексика. Легкое пиво с лаймом, 4.5%. Стекло 0.355 л.</p>
+                            <div class="product-footer"><span class="product-price">290 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Budweiser</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Budweiser" Budvar</h3>
+                            <p class="product-desc">Чехия. Оригинальный чешский лагер, 5.0%. Стекло 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">230 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Гиннесс</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Guinness" Original</h3>
+                            <p class="product-desc">Ирландия. Знаменитый сухой стаут, 4.2%. Банка 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">380 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Ермолино</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Ермолино" Живое нефильтрованное</h3>
+                            <p class="product-desc">Россия. Непастеризованное пиво с насыщенным вкусом, 5.0%. ПЭТ 1 л.</p>
+                            <div class="product-footer"><span class="product-price">180 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Охота</span></div>
+                        <div class="product-info">
+                            <h3>Пиво "Охота" крепкое</h3>
+                            <p class="product-desc">Россия. Крепкое пиво, 7.5%. Банка 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">130 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="beer">
+                        <div class="product-image" style="background-color: #f7c35c;"><span class="image-placeholder">🍺 Сидр</span></div>
+                        <div class="product-info">
+                            <h3>Яблочный сидр "St. Anton"</h3>
+                            <p class="product-desc">Россия. Натуральный сидр, яблочный, 4.5%. Стекло 0.5 л.</p>
+                            <div class="product-footer"><span class="product-price">220 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- МОЛОЧНЫЕ ПРОДУКТЫ -->
+                    <div class="product-card" data-category="dairy">
+                        <div class="product-image" style="background-color: #f0e6d2;"><span class="image-placeholder">🧀 Сыр</span></div>
+                        <div class="product-info">
+                            <h3>Сыр "Пармезан" 36 мес. выдержки</h3>
+                            <p class="product-desc">Италия. Твердый сыр с зернистой структурой и насыщенным пикантным вкусом. 200г.</p>
+                            <div class="product-footer"><span class="product-price">620 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="dairy">
+                        <div class="product-image" style="background-color: #f0e0b0;"><span class="image-placeholder">🧀 Камамбер</span></div>
+                        <div class="product-info">
+                            <h3>Сыр "Камамбер" с белой плесенью</h3>
+                            <p class="product-desc">Франция. Мягкий сыр с нежной текстурой и грибным ароматом. 125г.</p>
+                            <div class="product-footer"><span class="product-price">390 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="dairy">
+                        <div class="product-image" style="background-color: #faf7e4;"><span class="image-placeholder">🧈 Масло</span></div>
+                        <div class="product-info">
+                            <h3>Масло сливочное "Экомилк" 82.5%</h3>
+                            <p class="product-desc">Россия. Традиционное сливочное масло высшего сорта. 180г.</p>
+                            <div class="product-footer"><span class="product-price">210 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="dairy">
+                        <div class="product-image" style="background-color: #e6f0da;"><span class="image-placeholder">🥛 Молоко</span></div>
+                        <div class="product-info">
+                            <h3>Молоко "Домик в деревне" 3.5%</h3>
+                            <p class="product-desc">Россия. Отборное пастеризованное молоко. 1л.</p>
+                            <div class="product-footer"><span class="product-price">95 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- МЯСНЫЕ ДЕЛИКАТЕСЫ -->
+                    <div class="product-card" data-category="meat">
+                        <div class="product-image" style="background-color: #b84a4a;"><span class="image-placeholder">🥩 Хамон</span></div>
+                        <div class="product-info">
+                            <h3>Хамон "Serrano" Gran Reserva</h3>
+                            <p class="product-desc">Испания. Сыровяленый окорок, выдержанный 15 месяцев. Нарезка 150г.</p>
+                            <div class="product-footer"><span class="product-price">890 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="meat">
+                        <div class="product-image" style="background-color: #b56a6a;"><span class="image-placeholder">🥩 Колбаса</span></div>
+                        <div class="product-info">
+                            <h3>Колбаса сырокопченая "Салями"</h3>
+                            <p class="product-desc">Италия. Тонкий аромат специй и чеснока. Нарезка 200г.</p>
+                            <div class="product-footer"><span class="product-price">450 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="meat">
+                        <div class="product-image" style="background-color: #996633;"><span class="image-placeholder">🥩 Брезаола</span></div>
+                        <div class="product-info">
+                            <h3>Брезаола (вяленая говядина)</h3>
+                            <p class="product-desc">Италия. Нежнейшее мясо с пикантным вкусом. Нарезка 100г.</p>
+                            <div class="product-footer"><span class="product-price">650 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- КОНДИТЕРСКИЕ ИЗДЕЛИЯ -->
+                    <div class="product-card" data-category="confectionery">
+                        <div class="product-image" style="background-color: #5d3a1a;"><span class="image-placeholder">🍫 Шоколад</span></div>
+                        <div class="product-info">
+                            <h3>Шоколад "Lindt" Excellence 85%</h3>
+                            <p class="product-desc">Швейцария. Горький шоколад с высоким содержанием какао и насыщенным вкусом. 100г.</p>
+                            <div class="product-footer"><span class="product-price">350 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="confectionery">
+                        <div class="product-image" style="background-color: #f7d96e;"><span class="image-placeholder">🍬 Конфеты</span></div>
+                        <div class="product-info">
+                            <h3>Конфеты "Merci" ассорти</h3>
+                            <p class="product-desc">Германия. Набор шоколадных конфет с различными начинками. 250г.</p>
+                            <div class="product-footer"><span class="product-price">420 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="confectionery">
+                        <div class="product-image" style="background-color: #c7a252;"><span class="image-placeholder">🍪 Печенье</span></div>
+                        <div class="product-info">
+                            <h3>Печенье "Любятово" с шоколадом</h3>
+                            <p class="product-desc">Россия. Хрустящее печенье с кусочками шоколада. 200г.</p>
+                            <div class="product-footer"><span class="product-price">130 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- СНЕКИ И ЗАКУСКИ (существующие + новые) -->
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #9acd32;"><span class="image-placeholder">🥜 Орехи</span></div>
+                        <div class="product-info">
+                            <h3>Ассорти орехов (миндаль, кешью, грецкий)</h3>
+                            <p class="product-desc">Упаковка 200г. Обжаренные, слегка подсоленные.</p>
+                            <div class="product-footer"><span class="product-price">320 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #cd853f;"><span class="image-placeholder">🫒 Оливки</span></div>
+                        <div class="product-info">
+                            <h3>Оливки зеленые с косточкой</h3>
+                            <p class="product-desc">Греция. Крупные, мясистые оливки в рассоле. 300г.</p>
+                            <div class="product-footer"><span class="product-price">250 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #f4a460;"><span class="image-placeholder">🍟 Чипсы</span></div>
+                        <div class="product-info">
+                            <h3>Чипсы "Lays" с солью</h3>
+                            <p class="product-desc">Хрустящий картофель. Классические. 150г.</p>
+                            <div class="product-footer"><span class="product-price">180 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <!-- НОВЫЕ ЗАКУСКИ К ПИВУ -->
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🐟 Лещ</span></div>
+                        <div class="product-info">
+                            <h3>Рыба вяленая "Лещ"</h3>
+                            <p class="product-desc">Крупный лещ, вяленый, пивной. Упаковка 150 г.</p>
+                            <div class="product-footer"><span class="product-price">280 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🐟 Вобла</span></div>
+                        <div class="product-info">
+                            <h3>Вобла вяленая</h3>
+                            <p class="product-desc">Классическая вобла, слабосоленая, вяленая. 100 г.</p>
+                            <div class="product-footer"><span class="product-price">190 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🐟 Тарань</span></div>
+                        <div class="product-info">
+                            <h3>Тарань вяленая</h3>
+                            <p class="product-desc">Небольшая рыбка, отличная закуска к пиву. 100 г.</p>
+                            <div class="product-footer"><span class="product-price">170 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🦑 Кальмар</span></div>
+                        <div class="product-info">
+                            <h3>Кольца кальмара сушеные</h3>
+                            <p class="product-desc">Сушеные кольца кальмара с солью, пивная закуска. 80 г.</p>
+                            <div class="product-footer"><span class="product-price">210 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🦐 Креветки</span></div>
+                        <div class="product-info">
+                            <h3>Креветки сушеные</h3>
+                            <p class="product-desc">Мелкие сушеные креветки, соленые. 70 г.</p>
+                            <div class="product-footer"><span class="product-price">230 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🦞 Раки</span></div>
+                        <div class="product-info">
+                            <h3>Раки варено-мороженые</h3>
+                            <p class="product-desc">Крупные раки, уже вареные, достаточно разморозить. 500 г.</p>
+                            <div class="product-footer"><span class="product-price">850 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🥨 Сухарики</span></div>
+                        <div class="product-info">
+                            <h3>Сухарики "Кириешки" с беконом</h3>
+                            <p class="product-desc">Хрустящие сухарики со вкусом бекона. 90 г.</p>
+                            <div class="product-footer"><span class="product-price">65 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🥨 Сухарики</span></div>
+                        <div class="product-info">
+                            <h3>Сухарики "Воронцовские" с чесноком</h3>
+                            <p class="product-desc">Ржаные сухарики с чесноком и зеленью. 100 г.</p>
+                            <div class="product-footer"><span class="product-price">70 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🥨 Сухарики</span></div>
+                        <div class="product-info">
+                            <h3>Сухарики "Три корочки" с сыром</h3>
+                            <p class="product-desc">Пшеничные сухарики со вкусом сыра. 90 г.</p>
+                            <div class="product-footer"><span class="product-price">68 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🥜 Арахис</span></div>
+                        <div class="product-info">
+                            <h3>Арахис жареный соленый</h3>
+                            <p class="product-desc">Крупный арахис, обжаренный, с морской солью. 150 г.</p>
+                            <div class="product-footer"><span class="product-price">120 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🥜 Фисташки</span></div>
+                        <div class="product-info">
+                            <h3>Фисташки соленые</h3>
+                            <p class="product-desc">Отборные фисташки, слегка подсоленные. 100 г.</p>
+                            <div class="product-footer"><span class="product-price">280 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🥜 Кешью</span></div>
+                        <div class="product-info">
+                            <h3>Кешью жареный с солью</h3>
+                            <p class="product-desc">Цельные орехи кешью, обжаренные. 100 г.</p>
+                            <div class="product-footer"><span class="product-price">320 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🍟 Чипсы</span></div>
+                        <div class="product-info">
+                            <h3>Чипсы "Lays" с солью</h3>
+                            <p class="product-desc">Классические картофельные чипсы. 150 г.</p>
+                            <div class="product-footer"><span class="product-price">210 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🍟 Чипсы</span></div>
+                        <div class="product-info">
+                            <h3>Чипсы "Pringles" оригинальные</h3>
+                            <p class="product-desc">Чипсы в банке, оригинальный вкус. 165 г.</p>
+                            <div class="product-footer"><span class="product-price">340 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="snacks">
+                        <div class="product-image" style="background-color: #d2b48c;"><span class="image-placeholder">🍟 Гренки</span></div>
+                        <div class="product-info">
+                            <h3>Гренки ржаные с чесноком</h3>
+                            <p class="product-desc">Хрустящие гренки из ржаного хлеба. 100 г.</p>
+                            <div class="product-footer"><span class="product-price">85 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- КОРМА ДЛЯ ЖИВОТНЫХ -->
+                    <div class="product-card" data-category="pet">
+                        <div class="product-image" style="background-color: #b98c5f;"><span class="image-placeholder">🐱 Корм для кошек</span></div>
+                        <div class="product-info">
+                            <h3>Корм сухой "Whiskas" для кошек</h3>
+                            <p class="product-desc">Полнорационный корм с курицей. 1.5 кг.</p>
+                            <div class="product-footer"><span class="product-price">620 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="pet">
+                        <div class="product-image" style="background-color: #a0522d;"><span class="image-placeholder">🐶 Корм для собак</span></div>
+                        <div class="product-info">
+                            <h3>Корм сухой "Pedigree" для взрослых собак</h3>
+                            <p class="product-desc">С мясом и овощами. 2 кг.</p>
+                            <div class="product-footer"><span class="product-price">720 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="pet">
+                        <div class="product-image" style="background-color: #8b5a2b;"><span class="image-placeholder">🐱 Влажный корм</span></div>
+                        <div class="product-info">
+                            <h3>Паучи "Sheba" для кошек (рагу с индейкой)</h3>
+                            <p class="product-desc">Вкусный и полезный влажный корм. 12 шт по 85г.</p>
+                            <div class="product-footer"><span class="product-price">550 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+
+                    <!-- ПРОМТОВАРЫ -->
+                    <div class="product-card" data-category="other">
+                        <div class="product-image" style="background-color: #c0c0c0;"><span class="image-placeholder">🥂 Бокалы</span></div>
+                        <div class="product-info">
+                            <h3>Набор бокалов для вина (6 шт)</h3>
+                            <p class="product-desc">Прозрачное стекло, классическая форма. Объем 300 мл.</p>
+                            <div class="product-footer"><span class="product-price">1 200 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="other">
+                        <div class="product-image" style="background-color: #b88a3d;"><span class="image-placeholder">🍾 Штопор</span></div>
+                        <div class="product-info">
+                            <h3>Штопор профессиональный (официантский)</h3>
+                            <p class="product-desc">Нержавеющая сталь, с ножом для фольги.</p>
+                            <div class="product-footer"><span class="product-price">590 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="other">
+                        <div class="product-image" style="background-color: #d3d3d3;"><span class="image-placeholder">🧊 Ведерко для льда</span></div>
+                        <div class="product-info">
+                            <h3>Ведерко для льда с щипцами</h3>
+                            <p class="product-desc">Нержавеющая сталь, двойные стенки.</p>
+                            <div class="product-footer"><span class="product-price">1 990 ₽</span><button class="btn btn-small">В корзину</button></div>
+                        </div>
+                    </div>
+                </div> <!-- конец catalog-grid -->
+
+                <!-- SEO-текст для каталога -->
+                <div class="seo-block">
+                    <h3>Почему наш ассортимент лучший в Москве?</h3>
+                    <p>Мы постоянно расширяем каталог, добавляем новинки от мировых производителей и следим за трендами. У нас вы найдёте как популярные бренды, так и редкие экземпляры, которые сложно купить в обычных супермаркетах. Весь товар сертифицирован, хранится в идеальных условиях. Наши сотрудники всегда готовы помочь с выбором – просто позвоните нам!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== СТРАНИЦА КОНТАКТОВ ========== -->
+        <section id="contacts" class="page-section">
+            <div class="container">
+                <h2>Контакты и доставка</h2>
+                <div class="contacts-grid">
+                    <div class="contacts-info">
+                        <h3>Как с нами связаться</h3>
+                        <ul class="contacts-list">
+                            <li><span>📞 Телефон:</span> <a href="tel:+74951234567">+7 (495) 123-45-67</a> (круглосуточно)</li>
+                            <li><span>📧 Email:</span> <a href="mailto:info@alkovoz.online">info@alkovoz.online</a></li>
+                            <li><span>📍 Офис:</span> г. Москва, ул. Тверская, д. 1</li>
+                            <li><span>🕒 Время работы:</span>24/7</li>
+                        </ul>
+                        <h3>Условия доставки</h3>
+                        <ul>    
+                            <li><strong>Минимальное время доставки:</strong> 60 минут.</li>
+                            <li><strong>Оплата:</strong> наличными курьеру или переводом на карту СБП.</li>
+                        </ul>
+                        <p><strong>Важно:</strong>18+</p>
+                        <p>Все без исключения жалобы и пожелания будут непременно взяты нами на заметку. Мы стремимся стать лучше для вас!</p>
+                    </div>
+                    <div class="contacts-form">
+                        <h3>Оставить заявку</h3>
+                        <form id="feedback-form" onsubmit="sendOrder(event)">
+                            <input type="text" id="name" placeholder="Ваше имя" required>
+                            <input type="tel" id="phone" placeholder="Телефон" required>
+                            <textarea id="comment" placeholder="Что хотите заказать?" rows="3"></textarea>
+                            <button type="submit" class="btn btn-large">Отправить заявку</button>
+                        </form>
+                        <div id="order-status" style="margin-top: 15px; text-align: center;"></div>
+                        <p class="form-note">Если вы не получили ответ на ваше сообщение, не беспокойтесь, оно будет обязательно прочитано.</p>
+                    </div>
+                </div>
+
+                <!-- Карта (можно вставить iframe с Яндекс.Картами) -->
+                <div class="map-block">
+                    <h3>Мы на карте</h3>
+                    <div style="position:relative;overflow:hidden;height:400px;border-radius:20px;">
+                        <iframe src="https://yandex.ru/map-widget/v1/?ll=37.617634%2C55.755819&z=12&pt=37.617634,55.755819,pm2rdm" width="100%" height="400" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe>
+                    </div>
+                </div>
+
+                <div class="seo-block">
+                    <p>У вас есть вопрос по ассортименту <a href="#catalog">алкоголя, продуктов или кормов</a>? Звоните или пишите! Мы всегда рады помочь. Alkovoz – ваш надёжный магазин у дома с доставкой.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Alkovoz. Доставка алкоголя и продуктов в Москве. 18+</p>
+            <p class="footer-links">
+                <a href="#main">Главная</a> | 
+                <a href="#catalog">Ассортимент</a> | 
+                <a href="#contacts">Контакты</a> | 
+                <a href="/privacy">Политика конфиденциальности</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
