@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 // ⚠️ ЗАМЕНИТЕ URL НА АДРЕС ВАШЕГО PHP-СКРИПТА
-                const response = await fetch('https://dostavka-alkogolya24.vercel.app/telegram-sender.php', {
+                const response = await fetch('https://dostavka-alkogolya24.vercel.app/api/telegram', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -73,3 +73,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
