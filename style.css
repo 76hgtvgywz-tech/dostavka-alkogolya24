@@ -573,3 +573,25 @@ body {
         grid-template-columns: 1fr;
     }
 }
+@media (max-width: 768px) {
+    .header .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .header-phone a {
+        font-size: 0.9rem;
+    }
+    .header-phone span {
+        font-size: 0.7rem;
+    }
+    .main-nav.active ul {
+        padding-left: 10px;
+    }
+    .main-nav.active ul li a {
+        text-align: left;
+    }
+}
+
