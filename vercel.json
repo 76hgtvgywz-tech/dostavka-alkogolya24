@@ -8,7 +8,7 @@
           "value": "dostavka-alkogolya24.vercel.app"
         }
       ],
-      "destination": "https://dostavka-alkogolya-24.vercel.app/$1",
+      "destination": "https://dostavka-alko24.vercel.app/$1",
       "permanent": true
     }
   ]
